@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Argaman: Mission Kirya</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="game"></div>
+
+  <div id="hud" class="hidden">
+    <div id="objective" class="hidden"><small>OBJECTIVE</small><span id="objText"></span></div>
+    <div id="stats"></div>
+    <section id="boss" class="hidden" aria-label="Amir boss fight">
+      <div class="boss-heading"><span>AMIR <small id="bossRound">ROUND 1 · THE LAST PLACE IN THE LIFT</small></span><b id="bossHealthText">4 / 4</b></div>
+      <div id="bossHealth" role="progressbar" aria-label="Amir health" aria-valuemin="0" aria-valuemax="4" aria-valuenow="4"><div id="bossHealthFill"></div></div>
+      <div class="boss-footer"><span id="bossStatus"></span><span>ARGAMAN <b id="bossLives"></b></span></div>
+    </section>
+    <div id="bossCrosshair" class="hidden" aria-hidden="true"></div>
+    <div id="bossDamage" aria-hidden="true"></div>
+    <div id="bossResult" class="hidden" role="status"><strong>AMIR WINS THIS ROUND</strong><span>Run out of the landing circle. Strike when his eyes turn gold.</span><small>Press E or Enter to try again</small></div>
+    <div id="detect" class="hidden"><div id="detectLabel">UNSEEN</div><div class="meter"><div id="detectFill"></div></div></div>
+    <div id="minimapWrap"><canvas id="minimap" width="180" height="180"></canvas></div>
+    <div id="bubbles"></div>
+    <div id="title"><div id="titleBig"></div><div id="titleSmall"></div></div>
+    <div id="toast"></div>
+    <div id="speed" class="hidden"></div>
+    <div id="prompt" class="hidden"></div>
+    <div id="subtitle" class="hidden"><b id="subWho"></b><span id="subText"></span></div>
+    <div id="hint"></div>
+    <div id="abilities"></div>
+    <div id="phone" class="hidden">
+      <div class="notch"></div>
+      <div id="phoneStatus">Incoming call…</div>
+      <div class="avatar">?</div>
+      <div class="caller">DO NOT ANSWER</div>
+      <div id="phoneLine"></div>
+      <div id="phoneReply"></div>
+      <div id="phoneKeys"><span class="yes"><b>Y</b> Answer</span><span class="no"><b>N</b> Decline</span></div>
+    </div>
+    <div id="missed"></div>
+    <div id="sms"></div>
+    <div id="elevator" class="hidden"><div class="arrow">▲</div><div id="floor">0</div><div class="lbl">LEVEL</div></div>
+    <div id="storm"></div>
+    <div id="flash"></div>
+    <div id="fade"></div>
+    <div id="end" class="hidden">
+      <h1>ARGAMAN IS IN.</h1>
+      <p class="tag">Level 14. Desk reached. Mission complete.</p>
+      <div id="endStats"></div>
+      <button id="again">PLAY AGAIN</button>
+    </div>
+  </div>
+
+  <div id="menu">
+    <div class="panel">
+      <h1>ARGAMAN</h1>
+      <h2>MISSION: KIRYA</h2>
+      <p class="tag">Get off the train at HaShalom, sneak past the meteorologists, survive the line at the gate,
+        beat red-eyed Amir for the last place in the lift, and get to your office on level 14.</p>
+      <div class="controls">
+        <span><b>WASD</b> move</span>
+        <span><b>Mouse</b> look</span>
+        <span><b>Shift</b> run (noisy)</span>
+        <span><b>C</b> sneak (hold)</span>
+        <span><b>Space</b> jump</span>
+        <span><b>F / Click</b> kipa (first stage + boss fight)</span>
+        <span><b>Q</b> summon Andrey (in the Kirya)</span>
+        <span><b>E</b> interact / skip</span>
+        <span><b>Y / N</b> answer / decline calls</span>
+        <span><b>M</b> mute</span>
+        <span><b>Esc</b> pause</span>
+        <span><b>R</b> special (3 kipa hits each round)</span>
+      </div>
+      <p class="tip">Meteorologists see in the <b style="color:#ffe066">yellow cones</b>. Crouch in a bush and you are invisible.
+        If they spot you, they throw you away from the Kirya at <b>200 km/h</b>.</p>
+      <label class="check"><input type="checkbox" id="voices" checked /> Spoken dialogue (browser voices)</label>
+      <button id="play">GET OFF THE TRAIN</button>
+    </div>
+  </div>
+
+  <div id="pause" class="hidden"><div class="pause-panel"><div id="pauseTitle">PAUSED</div><small>Choose how to continue</small><button id="resumeCapture">CAPTURE MOUSE &amp; RESUME</button><button id="resumeFree">CONTINUE WITH DRAG LOOK</button><p>Without capture, hold the right mouse button and drag to look.</p></div></div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "argaman",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Argaman: Mission Kirya - browser stealth game set at the Kirya in Tel Aviv",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test tests/*.test.js"
+  }
+}

@@ -1,0 +1,21 @@
+ARGAMAN: MISSION KIRYA
+
+1. Extract the entire ZIP into a folder.
+2. Install Node.js if it is not already installed.
+3. Open a terminal in the extracted argaman-mission-kirya folder.
+4. Run: npm start
+5. Open http://localhost:5173 in a modern browser and click GET OFF THE TRAIN.
+
+No npm install or build step is required.
+An internet connection is needed to load Three.js from its pinned CDN URL.
+Keep the terminal open while playing. Press Ctrl+C there to stop the server.
+If port 5173 is already in use, stop the other copy first.
+
+If the browser cannot capture the mouse, choose CONTINUE WITH DRAG LOOK.
+Hold the right mouse button and drag to look; press Esc to pause.
+
+Controls: WASD move, Shift run, C sneak, Space jump, F/left click kipa,
+E interact/skip dialogue, Q Andrey, Y/N answer/decline, R special, M mute.
+
+The complete editable game source and automated tests are included.
+Run npm test to execute the tests. See README.md for story and development notes.
